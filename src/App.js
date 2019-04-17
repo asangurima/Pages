@@ -56,6 +56,12 @@ class App extends Component {
             <ChangePassword alert={this.alert} user={user} />
           )} />
         </main>
+        <Route exact path="/books" component={Books} />
+        // <Route exact path="/my-books" component={MyBooks} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/books/:id" component={Book} />
+        <Route exact path="/books/:id/edit" component={BookEdit} />
+        <Route exact path="/book-create" component={BookCreate} />
       </React.Fragment>
     )
   }
