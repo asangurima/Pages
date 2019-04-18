@@ -10,7 +10,8 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 
 import Home from './Home.js'
-import Books from './Books.js'
+import Books from './books/Books.js'
+import BookCreate from './books/BookCreate.js'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -61,6 +62,9 @@ class App extends Component {
         </main>
         <Route exact path="/" component={Home} />
         <Route exact path="/books" component={Books} />
+        <AuthenticatedRoute user={user} exact path='/book-create' render={() => (
+          <BookCreate alert={this.alert} user={user} />
+        )} />
       </React.Fragment>
     )
   }

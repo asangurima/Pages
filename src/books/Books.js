@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
-import apiUrl from './apiConfig'
+import apiUrl from '../apiConfig'
 
 import { Link } from 'react-router-dom'
 
