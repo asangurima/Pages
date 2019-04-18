@@ -5,3 +5,7 @@
         <Route exact path="/book-create" component={BookCreate} />
 
         <Link to='books/:id/edit'>Edit Book</Link>
+
+
+    const id = this.props.match.params.id
+    axios.get(`${apiUrl}/books/${id}`)

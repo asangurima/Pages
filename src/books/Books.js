@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react'
-import axios from 'axios'
-import apiUrl from '../apiConfig'
+// import axios from 'axios'
+// import apiUrl from '../apiConfig'
 
 import { Link } from 'react-router-dom'
+
+import { indexBooks } from './api.js'
 
 import Spinner from 'react-bootstrap/Spinner'
 
@@ -16,8 +18,9 @@ class Books extends Component {
   }
 
   componentDidMount () {
+    const { user } = this.props
     console.log('books component mounted')
-    axios.get(apiUrl + '/books')
+    indexBooks(user)
       .then(response => this.setState({
         books: response.data.books
       }))
@@ -31,7 +34,6 @@ class Books extends Component {
     console.log('books component rendered')
     return (
       <Fragment>
-        <h5>{this.props.location.state ? this.props.location.state.message : '' }</h5>
         <h4> Books: </h4>
         <ul>
           {this.state.books.map(book => (

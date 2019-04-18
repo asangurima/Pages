@@ -67,6 +67,7 @@ class BookCreate extends Component {
 
     return (
       <BookForm
+        book={book}
         title={title}
         author={author}
         total_pages={totalPages}
