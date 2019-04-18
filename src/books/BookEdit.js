@@ -1,26 +1,26 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
-// import apiUrl from '../apiConfig'
-import { Redirect } from 'react-router'
-import { createBook } from './api.js'
+import axios from 'axios'
+import apiUrl from '../apiConfig'
+import { Redirect } from 'react-router-dom'
+import { editBook } from './api.js'
 
-import BookForm from './BookForm'
+import BookForm from './BookForm.js'
 
-class BookCreate extends Component {
+class BookEdit extends Component {
   constructor () {
     super()
 
     this.state = {
-      book: {
-        title: '',
-        author: '',
-        total_pages: '',
-        current_page: '',
-        date_started: ''
-      },
-      created: false,
+      book: null,
+      updated: false,
       message: null
     }
+  }
+  componentDidMount () {
+    const id = this.props.match.params.id
+    axios.get(`${apiUrl}/books/${id}`)
+      .then(response => this.setState({ movie: response.data.book }))
+      .catch(console.log)
   }
 
   handleSubmit = (event) => {
@@ -29,11 +29,8 @@ class BookCreate extends Component {
     const { book } = this.state
     const { user } = this.props
 
-    createBook(user, book)
-      .then(response => this.setState({
-        created: true,
-        book: response.data.book
-      }))
+    editBook(user, book)
+      .then(() => this.setState({ updated: true }))
       .catch(() => this.setState({
         book: { ...book,
           title: '',
@@ -41,11 +38,11 @@ class BookCreate extends Component {
           total_pages: '',
           current_page: '',
           date_started: '' },
-        message: 'Create failed. Please fill out all forms and try again.'
+        message: 'Update failed. Please fill out all forms and try again.'
       }))
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     console.log(event.target.name, event.target.value)
 
     const inputName = event.target.name
@@ -57,9 +54,13 @@ class BookCreate extends Component {
   }
 
   render () {
-    const { book, created, message } = this.state
+    const { book, updated, message } = this.state
 
-    if (created) {
+    if (!book) {
+      return <p>loading...</p>
+    }
+
+    if (updated) {
       return <Redirect to={`/books/${book.id}`} />
     }
 
@@ -80,4 +81,4 @@ class BookCreate extends Component {
   }
 }
 
-export default BookCreate
+export default BookEdit

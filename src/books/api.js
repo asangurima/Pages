@@ -9,3 +9,12 @@ export const createBook = (user, book) => {
     data: { book }
   })
 }
+
+export const editBook = (user, book) => {
+  return axios({
+    method: 'PATCH',
+    url: apiUrl + `/books/${book.id}`,
+    headers: { 'Authorization': `Token token=${user.token}` },
+    data: { book }
+  })
+}

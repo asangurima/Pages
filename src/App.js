@@ -12,6 +12,7 @@ import ChangePassword from './auth/components/ChangePassword'
 import Home from './Home.js'
 import Books from './books/Books.js'
 import BookCreate from './books/BookCreate.js'
+import BookEdit from './books/BookEdit.js'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -64,6 +65,9 @@ class App extends Component {
         <Route exact path="/books" component={Books} />
         <AuthenticatedRoute user={user} exact path='/book-create' render={() => (
           <BookCreate alert={this.alert} user={user} />
+        )} />
+        <AuthenticatedRoute user={user} exact path='books/:id/edit' render={() => (
+          <BookEdit alert={this.alert} user={user} />
         )} />
       </React.Fragment>
     )
