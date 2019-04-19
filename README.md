@@ -70,6 +70,11 @@ I would like to rebuild the back end with Express in the future.
 ## Wireframe
 ![Imgur](https://i.imgur.com/kYbUiiP.jpg)
 
+## Screenshots
+![Imgur](https://i.imgur.com/rX0I1AR.png?3)
+
+![Imgur](https://i.imgur.com/Dyny2uF.png)
+
 ## User Stories
 + As an unregistered user, I would like to sign up with email and password.
 + As a registered user, I would like to sign in with email and password.
@@ -81,8 +86,8 @@ I would like to rebuild the back end with Express in the future.
 + As a signed in user, I would like to see only my books.
 + As a signed in user, I would like to delete my books.
 + As a signed in user, I would like to see the following information about a book:
-- title
-- author
-- date started
-- total pages
-- current page
+    - title
+    - author
+    - date started
+    - total pages
+    - current page
