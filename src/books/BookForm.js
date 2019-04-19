@@ -17,7 +17,7 @@ const BookForm = function (
         <input value={book.author} name="author" onChange={handleChange}/>
 
         <label htmlFor="totalPages">Total Pages</label>
-        <input value={book.total_pages} name="totalPages" type="number" min="0" onChange={handleChange}/>
+        <input value={book.totalPages} name="totalPages" type="number" min="0" onChange={handleChange}/>
 
         <label htmlFor="currentPage">Current Page</label>
         <input value={book.current_page} name="currentPage" type="number" min="0" onChange={handleChange}/>

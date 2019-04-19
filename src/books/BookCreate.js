@@ -11,13 +11,7 @@ class BookCreate extends Component {
     super()
 
     this.state = {
-      book: {
-        // title: '',
-        // author: '',
-        // total_pages: '',
-        // current_page: '',
-        // date_started: ''
-      },
+      book: {},
       created: false,
       message: null
     }
@@ -63,7 +57,7 @@ class BookCreate extends Component {
       return <Redirect to={`/books/${book.id}`} />
     }
 
-    // const { title, author } = book
+    // const { title, author, total_pages, current_page, date_started } = book
     const totalPages = this.state.book.total_pages
     const currentPage = this.state.book.current_page
     const dateStarted = this.state.book.date_started
