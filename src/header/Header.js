@@ -1,27 +1,27 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import './Header.scss'
 
 const authenticatedOptions = (
   <React.Fragment>
-    <Link to="/change-password">Change Password</Link>
-    <Link to="/sign-out">Sign Out</Link>
-    <Link to="/books">All Books</Link>
-    <Link to="/book-create">Add Book</Link>
+    <NavLink activeClassName="selected" to="/change-password">Change Password</NavLink>
+    <NavLink activeClassName="selected" to="/sign-out">Sign Out</NavLink>
+    <NavLink activeClassName="selected" to="/books">All Books</NavLink>
+    <NavLink activeClassName="selected" to="/book-create">Add Book</NavLink>
   </React.Fragment>
 )
 
 const unauthenticatedOptions = (
   <React.Fragment>
-    <Link to="/sign-up">Sign Up</Link>
-    <Link to="/sign-in">Sign In</Link>
+    <NavLink activeClassName="selected" to="/sign-up">Sign Up</NavLink>
+    <NavLink activeClassName="selected" to="/sign-in">Sign In</NavLink>
   </React.Fragment>
 )
 
 const alwaysOptions = (
   <React.Fragment>
-    <Link to="/">Home</Link>
+    <NavLink activeClassName="selected" exact to="/">Home</NavLink>
   </React.Fragment>
 )
 

@@ -33,36 +33,45 @@ class Book extends Component {
       .catch(console.log)
   }
 
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to={{
-        pathname: '/books', state: { message: 'Succesfully deleted book!' }
-      }} />
+    renderRedirect = () => {
+      if (this.state.redirect) {
+        return <Redirect to={{
+          pathname: '/books', state: { message: 'Succesfully deleted book!' }
+        }} />
+      }
     }
-  }
 
-  render () {
-    if (!this.state.book) {
-      return <p> loading... </p>
+    render () {
+      const { book } = this.state
+      const { user } = this.props
+      const isUploadedByUser = book ? user.id === book.user.id : false
+
+      const editButtonLink = <Link to={`/books/${this.props.match.params.id}/edit`}>
+        <button>Edit</button>
+      </Link>
+      const deleteButtonLink = <button onClick={this.handleDeleteBook}>Delete</button>
+
+      if (!book) {
+        return <p>Loading...</p>
+      }
+
+      return (
+        <Fragment>
+          <h4>{book.title}</h4>
+          <p>Author: {book.author}</p>
+          {/*  <p>Total Pages: {book.totalPages} </p>
+        <p>Current Page: {book.currentPage} </p>
+        <p>Date Started: {book.dateStarted} </p>
+        */}
+          {this.renderRedirect()}
+          { isUploadedByUser ? editButtonLink : ''}
+          { isUploadedByUser ? deleteButtonLink : ''}
+          <Link to="/books">
+            <button>Back to all Books</button>
+          </Link>
+        </Fragment>
+      )
     }
-    const { title, author } = this.state.book
-    const totalPages = this.state.book.total_pages
-    const currentPage = this.state.book.current_page
-    const dateStarted = this.state.book.date_started
-
-    return (
-      <Fragment>
-        <h4>{title}</h4>
-        <p>Author: {author}</p>
-        <p>Total Pages: {totalPages} </p>
-        <p>Current Page: {currentPage} </p>
-        <p>Date Started: {dateStarted} </p>
-        {this.renderRedirect()}
-        <button onClick={this.handleDeleteBook}> Delete </button>
-        <Link to={this.props.match.url + '/edit'}><button>Edit</button></Link>
-      </Fragment>
-    )
-  }
 }
 
 export default withRouter(Book)

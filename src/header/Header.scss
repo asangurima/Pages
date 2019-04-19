@@ -1,5 +1,10 @@
 $charcoal: #bbb;
 
+.selected {
+  // background-color: silver;
+  font-weight: bold;
+}
+
 .main-header {
   align-items: center;
   border-bottom: 1px solid $charcoal;
