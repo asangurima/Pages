@@ -12,11 +12,11 @@ class BookCreate extends Component {
 
     this.state = {
       book: {
-        title: '',
-        author: '',
-        total_pages: '',
-        current_page: '',
-        date_started: ''
+        // title: '',
+        // author: '',
+        // total_pages: '',
+        // current_page: '',
+        // date_started: ''
       },
       created: false,
       message: null
@@ -45,7 +45,7 @@ class BookCreate extends Component {
       }))
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     console.log(event.target.name, event.target.value)
 
     const inputName = event.target.name
@@ -63,13 +63,14 @@ class BookCreate extends Component {
       return <Redirect to={`/books/${book.id}`} />
     }
 
-    const { title, author, totalPages, currentPage, dateStarted } = book
+    // const { title, author } = book
+    const totalPages = this.state.book.total_pages
+    const currentPage = this.state.book.current_page
+    const dateStarted = this.state.book.date_started
 
     return (
       <BookForm
         book={book}
-        title={title}
-        author={author}
         total_pages={totalPages}
         current_page={currentPage}
         date_started={dateStarted}

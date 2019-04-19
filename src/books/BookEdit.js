@@ -9,7 +9,13 @@ class BookEdit extends Component {
     super()
 
     this.state = {
-      book: null,
+      book: {
+        title: '',
+        author: '',
+        total_pages: '',
+        current_page: '',
+        date_started: ''
+      },
       updated: false,
       message: null
     }
@@ -69,19 +75,19 @@ class BookEdit extends Component {
       return <Redirect to={`/books/${book.id}`} />
     }
 
-    const { title, author } = book
-    const totalPages = this.state.book.total_pages
-    const currentPage = this.state.book.current_pags
-    const dateStarted = this.state.book.date_started
+    // const { title, author } = book
+    // const totalPages = this.state.book.total_pages
+    // const currentPage = this.state.book.current_page
+    // const dateStarted = this.state.book.date_started
 
     return (
       <BookForm
         book={book}
-        title={title}
-        author={author}
-        total_pages={totalPages}
-        current_page={currentPage}
-        date_started={dateStarted}
+        // title={title}
+        // author={author}
+        // total_pages={totalPages}
+        // current_page={currentPage}
+        // date_started={dateStarted}
         message={message}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
