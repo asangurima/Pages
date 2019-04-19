@@ -4,8 +4,6 @@ import Alert from 'react-bootstrap/Alert'
 const BookForm = function (
   { message, handleSubmit, handleChange, book }
 ) {
-  console.log(arguments)
-
   return (
     <Fragment>
       { message && <Alert variant="danger" dismissible>{message}</Alert> }

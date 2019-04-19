@@ -40,8 +40,6 @@ class BookCreate extends Component {
   }
 
   handleChange = (event) => {
-    console.log(event.target.name, event.target.value)
-
     const inputName = event.target.name
     const updatedInputValue = event.target.value
 

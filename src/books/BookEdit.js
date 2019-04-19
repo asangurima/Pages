@@ -19,9 +19,7 @@ class BookEdit extends Component {
     const { user } = this.props
     getBook(user, id)
       .then(response => this.setState({ book: response.data.book }))
-      .catch(console.log)
-
-    console.log(this.state)
+      .catch()
   }
 
   handleSubmit = (event) => {
@@ -31,7 +29,6 @@ class BookEdit extends Component {
     const { user } = this.props
 
     editBook(user, book)
-      .then(() => console.log(this.state))
       .then(() => this.setState({ updated: true }))
       .catch(() => this.setState({
         book: { ...book,
@@ -45,8 +42,6 @@ class BookEdit extends Component {
   }
 
   handleChange = (event) => {
-    console.log(event.target.name, event.target.value)
-
     const inputName = event.target.name
     const updatedInputValue = event.target.value
 
@@ -57,9 +52,6 @@ class BookEdit extends Component {
 
   render () {
     const { book, updated, message } = this.state
-
-    console.log(this.state)
-    console.log(this.props)
 
     if (!book) {
       return <p>loading...</p>

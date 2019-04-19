@@ -11,7 +11,6 @@ export const createBook = (user, book) => {
 }
 
 export const editBook = (user, book) => {
-  console.log(book)
   return axios({
     method: 'PATCH',
     url: apiUrl + `/books/${book.id}`,

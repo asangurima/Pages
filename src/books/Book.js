@@ -16,21 +16,18 @@ class Book extends Component {
   componentDidMount () {
     const { user } = this.props
     const id = this.props.match.params.id
-    console.log('this.props:', this.props)
-    console.log('this.state:', this.state)
     getBook(user, id)
-      .then(d => { console.log(d); return d })
+      .then(d => { return d })
       .then(response => this.setState({ book: response.data.book }))
-      .catch(console.log)
+      .catch()
   }
 
   handleDeleteBook = () => {
     const { user } = this.props
     const id = this.props.match.params.id
     deleteBook(user, id)
-      .then(console.log('Deleted!!!!!'))
       .then(() => this.setState({ redirect: true }))
-      .catch(console.log)
+      .catch()
   }
 
     renderRedirect = () => {
