@@ -17,13 +17,13 @@ const BookForm = function (
         <input value={book.author} name="author" onChange={handleChange}/>
 
         <label htmlFor="totalPages">Total Pages</label>
-        <input value={book.totalPages} name="totalPages" type="number" min="0" onChange={handleChange}/>
+        <input value={book.totalPages} name="total_pages" type="number" min="0" onChange={handleChange}/>
 
         <label htmlFor="currentPage">Current Page</label>
-        <input value={book.current_page} name="currentPage" type="number" min="0" onChange={handleChange}/>
+        <input value={book.current_page} name="current_page" type="number" min="0" onChange={handleChange}/>
 
         <label htmlFor="dateStarted">Date Started</label>
-        <input value={book.date_started} name="dateStarted" type="date" onChange={handleChange}/>
+        <input value={book.date_started} name="date_started" type="date" onChange={handleChange}/>
 
         <button type="submit">Submit</button>
       </form>

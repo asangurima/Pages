@@ -59,6 +59,8 @@ class BookEdit extends Component {
     const updatedBook = { ...this.state.book, [inputName]: updatedInputValue }
 
     this.setState({ book: updatedBook })
+
+    console.log(this.state)
   }
 
   render () {
@@ -66,6 +68,10 @@ class BookEdit extends Component {
 
     console.log(this.state)
     console.log(this.props)
+
+    const totalPages = this.state.book.total_pages
+    const currentPage = this.state.book.current_page
+    const dateStarted = this.state.book.date_started
 
     if (!book) {
       return <p>loading...</p>
@@ -78,6 +84,9 @@ class BookEdit extends Component {
     return (
       <BookForm
         book={book}
+        total_pages={totalPages}
+        current_page={currentPage}
+        date_started={dateStarted}
         message={message}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}

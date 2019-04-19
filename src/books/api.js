@@ -20,9 +20,9 @@ export const editBook = (user, book) => {
       book: {
         author: book.author,
         title: book.title,
-        current_page: book.currentPage,
-        total_pages: book.totalPages,
-        date_started: book.dateStarted
+        current_page: book.current_page,
+        total_pages: book.total_pages,
+        date_started: book.date_started
       }
     }
   })
